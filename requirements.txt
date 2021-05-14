@@ -1,0 +1,9 @@
+sphinx
+pytest
+sphinx_rtd_theme
+golog==0.6.2
+gspread
+oauth2client
+pandas
+numpy
+alive_progress
