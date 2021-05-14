@@ -14,4 +14,4 @@ test: install
 	py.test tests
 
 push:
-	git add . && git commit -m "update" && git push origin main
+	git add . && git commit -m "update" && git push origin master
