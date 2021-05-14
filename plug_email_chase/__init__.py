@@ -10,7 +10,7 @@ from plug_email_chase.logger import (
 
 __docformat__ = "restructuredtext"
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 # module level doc-string
 __doc__ = """

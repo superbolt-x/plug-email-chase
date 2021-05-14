@@ -11,7 +11,7 @@ with open('LICENSE') as f:
 
 setup(
     name="plug-email-chase",
-    version='1.0.0',
+    version='1.0.1',
     description="Plug - Email Chase Pipeline",
     author="Lorenzo Coacci",
     long_description=readme,
