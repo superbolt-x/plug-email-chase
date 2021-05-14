@@ -1,0 +1,22 @@
+name: GitHub Actions
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Install python 3.7"
+        run: |
+          apt update
+          apt install --yes python37 python3-pip python3-venv
+      - name: "Setup virtualenv"
+        run: |
+          mkdir -p ~/.virtualenvs
+          python3 -m venv ~/.virtualenvs/plug-email-chase
+          source ~/.virtualenvs/plug-email-chase/bin/activate
+          pip install -U 'pip<19.2' 'setuptools<51.0.0'
+          make install
+      - name: "Run tests"
+        run: |
+          # Need to re-activate the virtualenv
+          source ~/.virtualenvs/singer-python/bin/activate
+          make test
