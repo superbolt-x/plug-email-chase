@@ -3,7 +3,7 @@ black
 coverage
 flake8
 mccabe
-mypy
+mypy==0.812
 pylint
 pytest
 tox
