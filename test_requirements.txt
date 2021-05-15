@@ -1,9 +1,12 @@
 -r requirements.txt
-pre-commit
-flake8
-pytest-flake8
-sphinx
-pytest
-pylint
 black
+coverage
+flake8
+mccabe
+mypy
+pylint
+pytest
+tox
+pre-commit
+sphinx
 sphinx_rtd_theme
