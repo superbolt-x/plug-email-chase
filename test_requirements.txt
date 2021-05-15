@@ -5,7 +5,7 @@ flake8
 mccabe
 mypy
 pylint
-pytest
+pytest==6.2.4
 tox
 pre-commit
 sphinx
