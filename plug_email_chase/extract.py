@@ -33,7 +33,8 @@ from bs4 import BeautifulSoup
 
 
 # + + + Classes + + +
-# - - GMail - -
+def extract()
+
 class GMail():
     """
     GMail : the GMail Object
@@ -110,5 +111,5 @@ class GMail():
 
         self.gmail = self.client
 
-# - - GMail - -
+
 # + + + Classes + + +
