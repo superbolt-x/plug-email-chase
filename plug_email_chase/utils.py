@@ -10,6 +10,7 @@ Author: Lorenzo Coacci
 # + + + Libraries + + +
 import json
 import os
+
 # + + + Libraries + + +
 
 
@@ -21,16 +22,17 @@ import os
 # - - Plug Config - -
 def parse_plug_config(config_path: str) -> dict:
     """RETURN a dict from the parsed json config"""
-    # clean config input
+    # clean config input
     config_path = str(config_path)
     check = os.path.exists(config_path)
     if not check:
         raise f"Plug Config filepath does not exist: {config_path}"
 
-    with open(config_path, 'r') as f:
-        config = json.loads(f.read())
+    with open(config_path, "r") as rf:
+        config = json.loads(rf.read())
 
     return config
+
 
 # - - Plug Catalog - -
 

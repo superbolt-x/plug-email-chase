@@ -1,4 +1,4 @@
-from plug_email_chase import utils
+from .plug_email_chase import *
 
 __docformat__ = "restructuredtext"
 

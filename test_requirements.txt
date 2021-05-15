@@ -4,10 +4,10 @@ coverage
 flake8
 mccabe
 mypy
-pylint
-pytest
-tox
-pre-commit
+pre-commit==2.12.1
+pytest==6.2.4
+pylint==2.8.2
+tox==3.23.1
 sphinx
 sphinx_rtd_theme==0.5.2
-twine
+twine==3.4.1
