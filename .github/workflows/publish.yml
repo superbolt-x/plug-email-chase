@@ -18,10 +18,10 @@ jobs:
 
             - name: Install dependencies
               run: |
-                  make deps
+                  make install-test
             - name: Publish to PyPi
               env:
-                  FLIT_USERNAME: ${{ secrets.PYPI_USERNAME }}
-                  FLIT_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+                  PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+                  PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
               run: |
                   make publish

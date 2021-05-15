@@ -2,13 +2,13 @@
 .PHONY: coverage deps help lint push test
 
 # - init -
-check_prereqs:
+check-prereqs:
 	bash -c '[[ $$(python3 --version) == *3.8.9* ]]'
 
-install: check_prereqs
+install: check-prereqs
 	if [ -f venv/bin/activate ]; then venv/bin/python3 -m pip install --upgrade pip && venv/bin/pip install -r requirements.txt ; else pip install -r requirements.txt; fi
 
-install-dev: check_prereqs
+install-test: check-prereqs
 	pip install -r test_requirements.txt
 
 # - lint -
@@ -39,5 +39,5 @@ commit:
 push: pre-commit commit  ## Push code with tags
 	git push && git push --tags
 
-ship:  ## Ship to PyPi
-	python3 setup.py sdist && twine upload --skip-existing dist/*
+publish:  ## Publish to PyPi
+	python3 setup.py sdist && twine upload --repository pypi -u $PYPI_USERNAME -p $PYPI_PASSWORD --skip-existing dist/*
