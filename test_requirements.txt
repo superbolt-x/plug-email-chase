@@ -8,6 +8,6 @@ pylint
 pytest
 tox
 pre-commit
-sphinx
+sphinx==4.0.1
 sphinx_rtd_theme
 twine
