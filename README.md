@@ -1,5 +1,4 @@
-* * * WARNING: STILL IN DEVELOPMENT * * *
-
+# WARNING: STILL IN DEVELOPMENT
 
 plug-email-chase
 ================

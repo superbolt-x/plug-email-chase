@@ -39,5 +39,5 @@ commit:
 push: pre-commit commit  ## Push code with tags
 	git push && git push --tags
 
-ship: push  ## Ship to PyPi
+ship:  ## Ship to PyPi
 	python3 setup.py sdist && twine upload --skip-existing dist/*
