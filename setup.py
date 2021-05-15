@@ -1,20 +1,29 @@
 #!/usr/bin/env python
 
+import io
+import re
 from setuptools import setup, find_packages
 import subprocess
 
-with open('README.md') as f:
-    readme = f.read()
 
-with open('LICENSE') as f:
-    license = f.read()
+def long_description():
+    with io.open('README.md', 'r', encoding='utf-8') as f:
+        readme = f.read()
+    return readme
+
+def license():
+    with io.open('LICENSE', 'r', encoding='utf-8') as f:
+        license = f.read()
+    return license
+
 
 setup(
     name="plug-email-chase",
     version='1.0.1',
     description="Plug - Email Chase Pipeline",
     author="Lorenzo Coacci",
-    long_description=readme,
+    author_email="lorenzo@coacci.it",
+    long_description=long_description(),
     long_description_content_type="text/markdown",
     classifiers=[
         'Programming Language :: Python :: 3 :: Only',
@@ -22,7 +31,7 @@ setup(
         'Natural Language :: English'
     ],
     keywords=['data pipeline', 'etl', 'data engineering'],
-    license=license,
+    license=license(),
     url="https://github.com/lollococce/plug-email-chase",
     include_package_data=True,
     install_requires=[
@@ -41,10 +50,11 @@ setup(
             'nose'
         ]
     },
-    packages=find_packages(exclude=('tests', 'docs')),
+    packages=find_packages(exclude=('tests', 'tests.*', 'docs', 'docs.*')),
     package_data={
         'singer': [
             'logging.conf'
         ]
-    }
+    },
+    zip_safe=False
 )
