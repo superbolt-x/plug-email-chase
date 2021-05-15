@@ -1,6 +1,6 @@
 -r requirements.txt
 black
-coverage
+coverage==5.5
 flake8==3.9.2
 mccabe==0.6.1
 mypy==0.812
