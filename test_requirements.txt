@@ -10,4 +10,4 @@ tox
 pre-commit
 sphinx
 sphinx_rtd_theme
-twine
+twine==3.4.1
