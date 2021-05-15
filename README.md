@@ -30,18 +30,3 @@ Or:
 source ~/.virtualenvs/plug-email-chase/bin/activate
 pip install plug-email-chase
 ```
-
-Now, from python code within the same `virtualenv`, you can use the
-library:
-
-```python
-
-```
-
-
-License
--------
-
-Copyright © 2021 Lorenzo Coacci
-
-Distributed under the Apache License Version 2.0
