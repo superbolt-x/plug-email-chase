@@ -7,20 +7,22 @@ Date: 2021-05-14
 
 Author: Lorenzo Coacci
 """
+from bs4 import BeautifulSoup
+
 # + + + Libraries + + +
 # to manage basic
 from golog import (
-    se,
-    sev,
+    correct_nonlist,
+    dict_print,
+    error_print,
+    filepath_exists,
     is_url,
     print_magenta,
-    correct_nonlist,
-    filepath_exists,
-    error_print,
+    se,
+    sev,
     warning_print,
-    dict_print
 )
-from bs4 import BeautifulSoup
+
 # + + + Libraries + + +
 
 
@@ -33,23 +35,25 @@ from bs4 import BeautifulSoup
 
 
 # + + + Classes + + +
-def extract()
+def extract():
+    pass
 
-class GMail():
+
+class Example:
     """
-    GMail : the GMail Object
+    Example : the Example Object
 
-    A GMail class to manage a Google Mail
+    A Example class to manage a Google Mail
 
 
     Parameters
     ----------
-    gmail_creds_path (optional): string
+    example_creds_path (optional): string
         The G Mail Path to the client secret JSON
-    gmail_config_path (optional): string
+    example_config_path (optional): string
         The G Mail Path to the token.pickle
-    gmail_client (optional): GMailClient
-        The GMailClient Object if already exists
+    example_client (optional): exampleClient
+        The exampleClient Object if already exists
     debug (optional): bool
         Show debug info?
     base_email (optional): string
@@ -69,47 +73,33 @@ class GMail():
     Examples
     --------
 
-    >>> gmail = GMail(gmail_config_path='./token.pickle')
+    >>> example = example(example_config_path='./token.pickle')
 
-    >>> 
+    >>>
     """
+
     def __init__(
-        self, 
-        gmail_creds_path=None,
-        gmail_config_path=None,
-        gmail_client=None,
+        self,
+        example_creds_path=None,
+        example_config_path=None,
+        example_client=None,
         debug=False,
         base_email="me",
         base_url="https://mail.google.com/mail/u/4",
         scopes=None,
-        api_version='v1'
+        api_version="v1",
     ):
-        """Init GMail"""
+        """Init example"""
         self.debug = bool(debug)
         self.base_email = str(base_email)
         self.base_url = str(base_url)
         self.api_version = str(api_version)
 
-        # load client
-        if gmail_client is not None:
-            self.client = gmail_client
-        else:
-            self.client = GMailClient(
-                gmail_creds_path=gmail_creds_path,
-                gmail_config_path=gmail_config_path,
-                debug=self.debug,
-                base_email=self.base_email,
-                base_url=self.base_url,
-                scopes=scopes,
-                api_version=self.api_version
-            ).client
-            if self.client is None:
-                error_print(
-                    f"Cannot connect to the GMail API - Client is None"
-                )
-                return None
+        # load client
+        if example_client is not None:
+            self.client = example_client
 
-        self.gmail = self.client
+        self.example = self.client
 
 
 # + + + Classes + + +

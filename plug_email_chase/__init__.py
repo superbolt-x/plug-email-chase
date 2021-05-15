@@ -1,16 +1,8 @@
 from plug_email_chase import utils
-from plug_email_chase.utils import (
-
-)
-
-from plug_email_chase.logger import (
-
-)
-
 
 __docformat__ = "restructuredtext"
 
-__version__ = '1.0.1'
+__version__ = "1.0.1"
 
 # module level doc-string
 __doc__ = """
@@ -28,4 +20,5 @@ Here are just a few of the things that plug_email_chase does well:
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
