@@ -1,32 +1,63 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Build - Python Package
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 jobs:
   build:
+
     runs-on: ubuntu-latest
     strategy:
-        matrix:
-            python-version: [3.7, 3.8, 3.9]
-
+      fail-fast: false
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+        
     env:
-        USING_COVERAGE: "3.9"
+      USING_COVERAGE: "3.9"
 
     steps:
-        - name: Checkout sources
-          uses: actions/checkout@v2
+    - name: Checkout sources
+      uses: actions/checkout@v2
 
-        - name: Set up Python
-          uses: actions/setup-python@v2
-          with:
-              python-version: $
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
 
-        - name: Install dependencies
-          run: |
-              make deps
+    - name: Install dependencies
+      run: |
+        make install-test
 
-        - name: Run tox
-          run: |
-              make tox
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      
+    - name: Lint with pylint
+      run: |
+        pylint `ls -R|grep .py$|xargs`
+    
+    - name: Run tox
+      run: |
+        make tox
 
-        - name: Upload coverage to Codecov
-          uses: codecov/codecov-action@v1
-          if: contains(env.USING_COVERAGE, matrix.python-version)
-          with:
-              fail_ci_if_error: true
+    - name: Test with pytest
+      run: |
+        pytest
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      if: contains(env.USING_COVERAGE, matrix.python-version)
+      with:
+        fail_ci_if_error: true
+
+
+    

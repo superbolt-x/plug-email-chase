@@ -6,10 +6,10 @@ check-prereqs:
 	bash -c '[[ $$(python3 --version) == *3.8.9* ]]'
 
 install: check-prereqs
-	if [ -f venv/bin/activate ]; then venv/bin/python3 -m pip install --upgrade pip && venv/bin/pip install -r requirements.txt ; else pip install -r requirements.txt; fi
+	if [ -f venv/bin/activate ]; then venv/bin/python3 -m pip install --upgrade pip && venv/bin/pip install -r requirements.txt ; else python -m pip install --upgrade pip && pip install -r requirements.txt; fi
 
 install-test: check-prereqs
-	pip install -r test_requirements.txt
+	if [ -f venv/bin/activate ]; then venv/bin/python3 -m pip install --upgrade pip && venv/bin/pip install -r test_requirements.txt ; else python -m pip install --upgrade pip && pip install -r test_requirements.txt; fi
 
 # - lint -
 lint:  ## Lint and static-check
