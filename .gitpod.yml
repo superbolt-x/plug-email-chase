@@ -1,4 +1,4 @@
 # .gitpod.yml
 
 tasks:
-  - init: source .env && pip3 install -r ./test_requirements.txt
+  - init: source .env && source .alias && pip3 install -r ./test_requirements.txt

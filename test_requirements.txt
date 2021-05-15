@@ -4,5 +4,6 @@ flake8
 pytest-flake8
 sphinx
 pytest
+pylint
 black
 sphinx_rtd_theme
