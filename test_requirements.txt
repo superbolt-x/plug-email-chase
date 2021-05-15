@@ -1,7 +1,7 @@
 -r requirements.txt
 black
 coverage
-flake8
+flake8==3.9.2
 mccabe==0.6.1
 mypy==0.812
 pre-commit==2.12.1
