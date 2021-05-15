@@ -1,6 +1,6 @@
 -r requirements.txt
 black
-coverage
+coverage==5.5
 flake8
 mccabe
 mypy
