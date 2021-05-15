@@ -6,7 +6,7 @@ mccabe
 mypy
 pylint
 pytest
-tox
+tox==3.23.1
 pre-commit
 sphinx
 sphinx_rtd_theme
