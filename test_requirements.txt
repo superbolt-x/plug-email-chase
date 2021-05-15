@@ -4,7 +4,7 @@ coverage
 flake8
 mccabe
 mypy
-pylint
+pylint==2.8.2
 pytest
 tox==3.23.1
 pre-commit
