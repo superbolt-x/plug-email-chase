@@ -9,5 +9,5 @@ pytest
 tox
 pre-commit
 sphinx
-sphinx_rtd_theme
+sphinx_rtd_theme==0.5.2
 twine
