@@ -1,28 +1,43 @@
-# check
+.DEFAULT_GOAL := help
+.PHONY: coverage deps help lint push test
+
+# - init -
 check_prereqs:
 	bash -c '[[ $$(python3 --version) == *3.8.9* ]]'
 
 install: check_prereqs
 	if [ -f venv/bin/activate ]; then venv/bin/python3 -m pip install --upgrade pip && venv/bin/pip install -r requirements.txt ; else pip install -r requirements.txt; fi
 
-install-dev: install
+install-dev: check_prereqs
 	pip install -r test_requirements.txt
 
-# test
-test: install
+# - lint -
+lint:  ## Lint and static-check
+	flake8 plug_email_chase
+	pylint plug_email_chase
+	mypy plug_email_chase
+
+# - test -
+coverage: install  ## Run tests with coverage
+	coverage erase
+	coverage run --include=podsearch/* -m pytest -ra
+	coverage report -m
+
+test: install  ## Run tests
 	pylint plug_email_chase --extension-pkg-whitelist=ciso8601 -d missing-docstring,broad-except,bare-except,too-many-return-statements,too-many-branches,too-many-arguments,no-else-return,too-few-public-methods,fixme,protected-access
 	nosetests --with-doctest -v
 	py.test tests
+	pytest -ra
 
-# git
-git-add:
-	git add .
-
-git-pre-commit:
+# - git -
+pre-commit:
 	pre-commit install
 
-git-commit:
-	git commit -m "update"
+commit:
+	git add . && git commit -m "update"
 
-push: git-add git-pre-commit git-commit
-	git push origin master
+push: pre-commit commit  ## Push code with tags
+	git push && git push --tags
+
+ship: push  ## Ship to PyPi
+	python3 setup.py sdist && twine upload --skip-existing dist/*
