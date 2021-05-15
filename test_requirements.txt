@@ -1,7 +1,7 @@
 -r requirements.txt
 black
 coverage
-flake8
+flake8==3.9.2
 mccabe
 mypy
 pylint
