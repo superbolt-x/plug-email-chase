@@ -7,7 +7,7 @@ mypy
 pylint
 pytest
 tox
-pre-commit
+pre-commit==2.12.1
 sphinx
 sphinx_rtd_theme
 twine
