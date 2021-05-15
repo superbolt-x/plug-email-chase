@@ -1,5 +1,5 @@
 -r requirements.txt
-black
+black==21.5b1
 coverage
 flake8
 mccabe
