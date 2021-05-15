@@ -1,4 +1,4 @@
 golog==0.6.2
-pandas
-numpy
+numpy==1.20.3
+pandas==1.2.4
 alive_progress
