@@ -10,18 +10,6 @@ Author: Lorenzo Coacci
 from bs4 import BeautifulSoup
 
 # + + + Libraries + + +
-# to manage basic
-from golog import (
-    correct_nonlist,
-    dict_print,
-    error_print,
-    filepath_exists,
-    is_url,
-    print_magenta,
-    se,
-    sev,
-    warning_print,
-)
 
 # + + + Libraries + + +
 
@@ -36,6 +24,7 @@ from golog import (
 
 # + + + Classes + + +
 def extract():
+    """Docstring"""
     pass
 
 

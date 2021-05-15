@@ -1,20 +1,18 @@
 #!/usr/bin/env python
 
-import re
 from setuptools import setup, find_packages
-import subprocess
 
 
 def long_description():
-    with open("README.md", "r", encoding="utf-8") as f:
-        readme = f.read()
+    with open("README.md", "r", encoding="utf-8") as rf:
+        readme = rf.read()
     return readme
 
 
-def license():
-    with open("LICENSE", "r", encoding="utf-8") as f:
-        license = f.read()
-    return license
+def license_file():
+    with open("LICENSE", "r", encoding="utf-8") as rf:
+        license_file = rf.read()
+    return license_file
 
 
 setup(
@@ -27,11 +25,11 @@ setup(
     long_description=long_description(),
     classifiers=[
         "Programming Language :: Python :: 3 :: Only",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: Apache License 2.0",
         "Natural Language :: English",
     ],
     keywords=["data pipeline", "etl", "data engineering"],
-    license=license(),
+    license=license_file(),
     url="https://github.com/lollococce/plug-email-chase",
     include_package_data=True,
     install_requires=[
@@ -42,7 +40,7 @@ setup(
         "backoff==1.8.0",
         "ciso8601",
     ],
-    extras_require={"dev": ["pylint", "ipython", "ipdb", "nose"]},
+    extras_require={"dev": ["pylint", "black", "flake8", "pytest", "coverage"]},
     packages=find_packages(exclude=("tests", "tests.*", "docs", "docs.*")),
     package_data={"singer": ["logging.conf"]},
     zip_safe=False,
