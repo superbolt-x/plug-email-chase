@@ -3,7 +3,7 @@
 
 # - init -
 check-prereqs:
-	bash -c '[[ $$(python3 --version) == *3.8.9* ]]'
+	python3 --version
 
 install: check-prereqs
 	if [ -f venv/bin/activate ]; then venv/bin/python3 -m pip install --upgrade pip && venv/bin/pip install -r requirements.txt ; else python -m pip install --upgrade pip && pip install -r requirements.txt; fi

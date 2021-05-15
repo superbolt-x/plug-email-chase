@@ -1,17 +1,27 @@
 #!/usr/bin/env python
+"""
+setup
+-----
+Set up Py Package
 
+Date: 2021-05-14
+
+Author: Lorenzo Coacci
+"""
 from setuptools import setup, find_packages
 
 
-def long_description():
-    with open("README.md", "r", encoding="utf-8") as rf:
-        readme = rf.read()
+def load_long_description():
+    """Parse long description file"""
+    with open("README.md", "r", encoding="utf-8") as f_readme:
+        readme = f_readme.read()
     return readme
 
 
-def license_file():
-    with open("LICENSE", "r", encoding="utf-8") as rf:
-        license_file = rf.read()
+def load_license_file():
+    """Parse license file"""
+    with open("LICENSE", "r", encoding="utf-8") as f_license:
+        license_file = f_license.read()
     return license_file
 
 
@@ -22,14 +32,14 @@ setup(
     author="Lorenzo Coacci",
     author_email="lorenzo@coacci.it",
     long_description_content_type="text/markdown",
-    long_description=long_description(),
+    long_description=load_long_description(),
     classifiers=[
         "Programming Language :: Python :: 3 :: Only",
         "License :: OSI Approved :: Apache License 2.0",
         "Natural Language :: English",
     ],
     keywords=["data pipeline", "etl", "data engineering"],
-    license=license_file(),
+    license=load_license_file(),
     url="https://github.com/lollococce/plug-email-chase",
     include_package_data=True,
     install_requires=[

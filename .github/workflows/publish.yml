@@ -1,6 +1,6 @@
 # This workflow will publish the python package to PyPi
 
-name: publish
+name: Publish - Python Package
 
 on:
   release:
