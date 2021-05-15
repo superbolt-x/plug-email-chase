@@ -3,7 +3,7 @@ black
 coverage
 flake8
 mccabe
-mypy
+mypy==0.812
 pre-commit==2.12.1
 pytest==6.2.4
 pylint==2.8.2
