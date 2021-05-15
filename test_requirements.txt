@@ -2,7 +2,7 @@
 black
 coverage
 flake8
-mccabe
+mccabe==0.6.1
 mypy
 pylint
 pytest
