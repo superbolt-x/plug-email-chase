@@ -18,7 +18,7 @@ def load_long_description():
     return readme
 
 
-def load_license_file():
+def load_license():
     """Parse license file"""
     with open("LICENSE", "r", encoding="utf-8") as f_license:
         license_file = f_license.read()
@@ -39,7 +39,7 @@ setup(
         "Natural Language :: English",
     ],
     keywords=["data pipeline", "etl", "data engineering"],
-    license=load_license_file(),
+    license=load_license(),
     url="https://github.com/lollococce/plug-email-chase",
     include_package_data=True,
     install_requires=[
@@ -50,8 +50,8 @@ setup(
         "backoff==1.8.0",
         "ciso8601",
     ],
-    extras_require={"dev": ["pylint", "black", "flake8", "pytest", "coverage"]},
+    extras_require={"test": ["pylint", "black", "flake8", "pytest", "coverage"]},
     packages=find_packages(exclude=("tests", "tests.*", "docs", "docs.*")),
-    package_data={"singer": ["logging.conf"]},
+    package_data={"plug_email_chase": ["logging.conf"]},
     zip_safe=False,
 )

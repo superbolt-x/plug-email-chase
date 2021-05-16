@@ -23,6 +23,7 @@ coverage: install  ## Run tests with coverage
 	coverage run --include=podsearch/* -m pytest -ra
 	coverage report -m
 
+# - test -
 test: install  ## Run tests
 	pylint plug_email_chase --extension-pkg-whitelist=ciso8601 -d missing-docstring,broad-except,bare-except,too-many-return-statements,too-many-branches,too-many-arguments,no-else-return,too-few-public-methods,fixme,protected-access
 	nosetests --with-doctest -v
