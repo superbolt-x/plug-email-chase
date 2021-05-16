@@ -58,6 +58,3 @@ jobs:
       if: contains(env.USING_COVERAGE, matrix.python-version)
       with:
         fail_ci_if_error: true
-
-
-    
