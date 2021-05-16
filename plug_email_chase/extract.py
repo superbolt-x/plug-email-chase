@@ -7,7 +7,7 @@ Date: 2021-05-14
 
 Author: Lorenzo Coacci
 """
-from bs4 import BeautifulSoup
+
 
 # + + + Libraries + + +
 

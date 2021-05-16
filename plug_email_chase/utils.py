@@ -26,7 +26,10 @@ def parse_plug_config(config_path: str) -> dict:
     config_path = str(config_path)
     check = os.path.exists(config_path)
     if not check:
-        raise f"Plug Config filepath does not exist: {config_path}"
+        raise FileNotFoundError(
+            f"Plug Config filepath \
+            does not exist: {config_path}"
+        )
 
     with open(config_path, "r") as rf:
         config = json.loads(rf.read())

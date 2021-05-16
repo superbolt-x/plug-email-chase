@@ -27,7 +27,7 @@ def load_license():
 
 setup(
     name="plug-email-chase",
-    version="1.0.1",
+    version="1.0.2",
     description="Plug - Email Chase Pipeline",
     author="Lorenzo Coacci",
     author_email="lorenzo@coacci.it",
