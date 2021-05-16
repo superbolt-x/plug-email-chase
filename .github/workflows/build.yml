@@ -34,6 +34,10 @@ jobs:
       run: |
         make install-test
 
+    - name: Format with black
+      run: |
+        black .
+
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -45,13 +49,19 @@ jobs:
       run: |
         pylint `ls -R|grep .py$|xargs`
     
-    - name: Run tox
+    - name: Lint with mypy
       run: |
-        make tox
+        mypy .
 
     - name: Test with pytest
       run: |
         pytest
+
+    - name: Test Coverage with coverage
+      run: |
+        coverage erase
+        coverage run --include=plug_email_chase/* -m pytest -ra
+        coverage report -m
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
