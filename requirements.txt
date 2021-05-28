@@ -2,3 +2,7 @@ golog==0.6.2
 alive_progress==1.6.2
 numpy==1.20.3
 pandas==1.2.4
+click==8.0.1
+alive-progress==1.6.2
+tzlocal==2.1
+beautifulsoup4==4.9.3

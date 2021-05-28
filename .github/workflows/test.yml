@@ -41,7 +41,7 @@ jobs:
         run: |
           coverage erase
           coverage run --include=plug_email_chase/* -m pytest -ra
-          coverage report -m
+        # coverage report -m
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
